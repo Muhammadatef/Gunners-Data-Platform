@@ -1,0 +1,17 @@
+[2026-01-08T16:55:05.764+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: arsenal_manual_match_scraper.scrape_latest_match manual__2026-01-08T16:55:03.195116+00:00 [queued]>
+[2026-01-08T16:55:05.777+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: arsenal_manual_match_scraper.scrape_latest_match manual__2026-01-08T16:55:03.195116+00:00 [queued]>
+[2026-01-08T16:55:05.778+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-01-08T16:55:05.824+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): scrape_latest_match> on 2026-01-08 16:55:03.195116+00:00
+[2026-01-08T16:55:05.835+0000] {standard_task_runner.py:60} INFO - Started process 19388 to run task
+[2026-01-08T16:55:05.841+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'arsenal_manual_match_scraper', 'scrape_latest_match', 'manual__2026-01-08T16:55:03.195116+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/arsenal_manual_match_scraper.py', '--cfg-path', '/tmp/tmpcyf9n7tu']
+[2026-01-08T16:55:05.845+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask scrape_latest_match
+[2026-01-08T16:55:05.952+0000] {task_command.py:423} INFO - Running <TaskInstance: arsenal_manual_match_scraper.scrape_latest_match manual__2026-01-08T16:55:03.195116+00:00 [running]> on host 58f686ded442
+[2026-01-08T16:55:06.133+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='arsenal_analytics' AIRFLOW_CTX_DAG_ID='arsenal_manual_match_scraper' AIRFLOW_CTX_TASK_ID='scrape_latest_match' AIRFLOW_CTX_EXECUTION_DATE='2026-01-08T16:55:03.195116+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-08T16:55:03.195116+00:00'
+[2026-01-08T16:55:06.135+0000] {arsenal_manual_match_scraper.py:42} INFO - Looking for latest Arsenal match in 2025-2026
+[2026-01-08T16:55:06.135+0000] {playwright_scraper.py:86} INFO - Scraping Understat fixtures: https://understat.com/team/Arsenal/2025
+[2026-01-08T16:55:13.197+0000] {playwright_scraper.py:116} INFO - Scraped 38 fixtures from Understat
+[2026-01-08T16:55:13.311+0000] {arsenal_manual_match_scraper.py:73} INFO - No new matches to scrape - all matches up to date!
+[2026-01-08T16:55:13.311+0000] {python.py:201} INFO - Done. Returned value was: {'status': 'up_to_date'}
+[2026-01-08T16:55:13.379+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=arsenal_manual_match_scraper, task_id=scrape_latest_match, execution_date=20260108T165503, start_date=20260108T165505, end_date=20260108T165513
+[2026-01-08T16:55:13.567+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-08T16:55:13.623+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,205 @@
+|-- .claude
+    |-- settings.local.json
+|-- .cursor
+|-- .dockerignore
+|-- .env
+|-- .envs
+|-- .github
+    |-- workflows
+        |-- cd.yml
+        |-- ci.yml
+|-- .gitignore
+|-- AIRFLOW_FIX_SUMMARY.md
+|-- ARCHITECTURE.md
+|-- B2B_FEATURES.md
+|-- CURRENT_STATUS.md
+|-- DATA_STATUS_REPORT.md
+|-- DATA_UPDATE_NEEDED.md
+|-- DESIGN_MODERNIZATION.md
+|-- ENTERPRISE_SUMMARY.md
+|-- FINAL_SUMMARY.md
+|-- IMPLEMENTATION_COMPLETE.md
+|-- METRICS_GLOSSARY.md
+|-- MIGRATION_README.md
+|-- Makefile
+|-- OPTA_REFERENCE.md
+|-- PROJECT_COMPLETE.md
+|-- QUICKSTART.md
+|-- README.md
+|-- RUN_THIS_NOW.md
+|-- SCRAPING_GUIDE.md
+|-- SCRAPING_STATUS.md
+|-- START_PLATFORM.md
+|-- SUMMARY.md
+|-- TESTING_GUIDE.md
+|-- VITE_MIGRATION.md
+|-- airflow
+    |-- Dockerfile
+    |-- config
+    |-- dags
+        |-- __pycache__
+            |-- arsenal_auto_match_scraper.cpython-311.pyc
+            |-- arsenal_backfill_season.cpython-311.pyc
+            |-- arsenal_fixture_monitor.cpython-311.pyc
+            |-- arsenal_manual_match_scraper.cpython-311.pyc
+            |-- arsenal_match_scraper.cpython-311.pyc
+            |-- arsenal_smart_match_scraper.cpython-311.pyc
+        |-- arsenal_auto_match_scraper.py
+        |-- arsenal_manual_match_scraper.py
+        |-- arsenal_smart_match_scraper.py
+    |-- plugins
+|-- backend
+    |-- Dockerfile
+    |-- package-lock.json
+    |-- package.json
+    |-- src
+        |-- db
+            |-- connection.js
+        |-- resolvers
+            |-- advanced.js
+            |-- index.js
+            |-- match.js
+            |-- player.js
+            |-- scalars.js
+            |-- season.js
+            |-- tactical.js
+        |-- schema
+            |-- schema.js
+        |-- server.js
+        |-- utils
+            |-- validation.js
+|-- dashboard
+    |-- Dockerfile
+    |-- __pycache__
+        |-- db_connection.cpython-311.pyc
+    |-- app.py
+    |-- app_backup.py
+    |-- app_before_viz.py
+    |-- assets
+        |-- README.md
+    |-- db_connection.py
+    |-- requirements.txt
+|-- database
+    |-- init
+        |-- 01_init_databases.sql
+        |-- 02_create_bronze_schema.sql
+        |-- 03_create_silver_schema.sql
+        |-- 03_create_views.sql
+        |-- 04_create_gold_schema.sql
+        |-- 05_create_metrics_schema.sql
+        |-- 06_seed_reference_data.sql
+        |-- 07_create_missing_views.sql
+    |-- migrations
+|-- dbt
+|-- docker-compose.yml
+|-- docs
+    |-- CI_CD_GUIDE.md
+    |-- DATABASE_CONNECTION.md
+    |-- REAL_DATA_TESTING.md
+|-- frontend
+    |-- .gitignore
+    |-- Dockerfile
+    |-- next.config.js
+    |-- package-lock.json
+    |-- package.json
+    |-- public
+        |-- arsenal-cannon.svg
+    |-- src
+        |-- app
+            |-- layout.tsx
+            |-- page.tsx
+        |-- components
+            |-- ClientProviders.tsx
+            |-- DataQualityIndicator.tsx
+            |-- Footer.tsx
+            |-- Header.tsx
+            |-- Pitch.tsx
+            |-- Providers.tsx
+            |-- dashboards
+                |-- ExpectedThreat.tsx
+                |-- MatchDetail.tsx
+                |-- MatchInsights.tsx
+                |-- OpponentAnalysis.tsx
+                |-- PerformanceTrends.tsx
+                |-- PlayerComparison.tsx
+                |-- PlayerMatchAnalysis.tsx
+                |-- PlayerStats.tsx
+                |-- SeasonOverview.tsx
+                |-- ShotNetworks.tsx
+                |-- TacticalAnalysis.tsx
+        |-- contexts
+            |-- SeasonContext.tsx
+        |-- lib
+            |-- apollo-client.ts
+        |-- theme.ts
+    |-- tsconfig.json
+|-- frontend-vite
+    |-- .gitignore
+    |-- Dockerfile
+    |-- README.md
+    |-- eslint.config.js
+    |-- index.html
+    |-- package-lock.json
+    |-- package.json
+    |-- public
+        |-- vite.svg
+    |-- src
+        |-- App.css
+        |-- App.tsx
+        |-- assets
+            |-- react.svg
+        |-- components
+            |-- ClientProviders.tsx
+            |-- DataQualityIndicator.tsx
+            |-- ErrorBoundary.tsx
+            |-- ExportButton.tsx
+            |-- Footer.tsx
+            |-- Header.tsx
+            |-- Pitch.tsx
+            |-- Providers.tsx
+            |-- dashboards
+                |-- ExpectedThreat.tsx
+                |-- MatchDetail.tsx
+                |-- MatchInsights.tsx
+                |-- OpponentAnalysis.tsx
+                |-- PerformanceTrends.tsx
+                |-- PlayerComparison.tsx
+                |-- PlayerMatchAnalysis.tsx
+                |-- PlayerStats.tsx
+                |-- SeasonOverview.tsx
+                |-- ShotNetworks.tsx
+                |-- TacticalAnalysis.tsx
+        |-- contexts
+            |-- SeasonContext.tsx
+        |-- index.css
+        |-- lib
+            |-- apollo-client.ts
+        |-- main.tsx
+        |-- theme.ts
+        |-- utils
+            |-- exportUtils.ts
+    |-- tsconfig.app.json
+    |-- tsconfig.json
+    |-- tsconfig.node.json
+    |-- vite.config.ts
+|-- requirements-airflow.txt
+|-- requirements.txt
+|-- scrapers
+    |-- __init__.py
+    |-- backfill_2025_26.py
+    |-- backfill_historical.py
+    |-- backfill_with_metadata.py
+    |-- config.py
+    |-- db_loader.py
+    |-- fbref_scraper.py
+    |-- playwright_scraper.py
+    |-- populate_match_reference.py
+    |-- schedule_future_matches.py
+    |-- understat_scraper.py
+    |-- utils.py
+|-- scripts
+|-- tests
+    |-- __init__.py
+    |-- test_dashboard.py
+    |-- test_database.py
+    |-- test_scrapers.py

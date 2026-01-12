@@ -1,0 +1,97 @@
+/* Global styles - Arsenal Analytics Modern Theme */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Override white backgrounds with glassmorphism effect */
+[style*="background: white"],
+[style*="background-color: white"],
+[style*="bg: white"] {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Ensure all text is white by default on dark backgrounds */
+[class*="chakra-stat"],
+[class*="chakra-table"],
+[class*="chakra-heading"],
+[class*="chakra-text"] {
+  color: white !important;
+}
+
+/* Table styling for glassmorphism */
+table th {
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+table td {
+  color: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+table tr:hover td {
+  background: rgba(239, 1, 7, 0.1) !important;
+}
+
+/* Chart tooltips styling */
+.recharts-tooltip-wrapper {
+  color: white !important;
+}
+
+.recharts-default-tooltip {
+  background: rgba(0, 31, 63, 0.95) !important;
+  border: 1px solid rgba(239, 1, 7, 0.3) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/* Glassmorphism cards */
+.chakra-stat__group,
+.chakra-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.chakra-stat__group:hover,
+.chakra-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(239, 1, 7, 0.2);
+  border-color: rgba(239, 1, 7, 0.3);
+}
+
+/* Stat component colors */
+.chakra-stat__label {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.chakra-stat__number {
+  color: white !important;
+  font-weight: bold;
+}
+
+/* Select dropdowns */
+select option {
+  background: #001F3F !important;
+  color: white !important;
+}

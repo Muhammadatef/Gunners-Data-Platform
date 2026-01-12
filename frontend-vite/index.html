@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arsenal FC Analytics</title>
+    <script>
+      // Error logging for debugging
+      window.addEventListener('error', function(e) {
+        console.error('Global error:', e.error);
+        document.body.innerHTML = '<div style="padding: 20px; font-family: monospace;"><h1>Error Loading App</h1><pre>' + e.error.stack + '</pre></div>';
+      });
+      
+      window.addEventListener('unhandledrejection', function(e) {
+        console.error('Unhandled promise rejection:', e.reason);
+        document.body.innerHTML = '<div style="padding: 20px; font-family: monospace;"><h1>Promise Error</h1><pre>' + e.reason + '</pre></div>';
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

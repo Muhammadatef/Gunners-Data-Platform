@@ -1,0 +1,82 @@
+[2026-01-12T08:07:10.892+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: arsenal_auto_match_scraper.scrape_new_matches scheduled__2026-01-12T06:00:00+00:00 [queued]>
+[2026-01-12T08:07:10.908+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: arsenal_auto_match_scraper.scrape_new_matches scheduled__2026-01-12T06:00:00+00:00 [queued]>
+[2026-01-12T08:07:10.909+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-01-12T08:07:10.993+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): scrape_new_matches> on 2026-01-12 06:00:00+00:00
+[2026-01-12T08:07:11.008+0000] {standard_task_runner.py:60} INFO - Started process 363 to run task
+[2026-01-12T08:07:11.013+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'arsenal_auto_match_scraper', 'scrape_new_matches', 'scheduled__2026-01-12T06:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/arsenal_auto_match_scraper.py', '--cfg-path', '/tmp/tmp2fudrgc9']
+[2026-01-12T08:07:11.018+0000] {standard_task_runner.py:88} INFO - Job 11: Subtask scrape_new_matches
+[2026-01-12T08:07:11.327+0000] {task_command.py:423} INFO - Running <TaskInstance: arsenal_auto_match_scraper.scrape_new_matches scheduled__2026-01-12T06:00:00+00:00 [running]> on host f533ffe9528b
+[2026-01-12T08:07:11.853+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='arsenal_analytics' AIRFLOW_CTX_DAG_ID='arsenal_auto_match_scraper' AIRFLOW_CTX_TASK_ID='scrape_new_matches' AIRFLOW_CTX_EXECUTION_DATE='2026-01-12T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-12T06:00:00+00:00'
+[2026-01-12T08:07:11.855+0000] {arsenal_auto_match_scraper.py:48} INFO - Checking for new Arsenal matches in 2025-2026 season
+[2026-01-12T08:07:11.855+0000] {playwright_scraper.py:86} INFO - Scraping Understat fixtures: https://understat.com/team/Arsenal/2025
+[2026-01-12T08:07:12.590+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/arsenal_auto_match_scraper.py", line 51, in check_and_scrape_new_matches
+    fixtures = scraper.scrape_season_fixtures(season)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/scrapers/utils.py", line 73, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/scrapers/playwright_scraper.py", line 88, in scrape_season_fixtures
+    with self.get_browser() as browser:
+  File "/usr/local/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/opt/airflow/scrapers/playwright_scraper.py", line 45, in get_browser
+    browser = p.chromium.launch(headless=self.headless)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/sync_api/_generated.py", line 14806, in launch
+    self._sync(
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/_impl/_browser_type.py", line 95, in launch
+    Browser, from_channel(await self._channel.send("launch", params))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 62, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 492, in wrap_api_call
+    return await cb()
+           ^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/playwright/_impl/_connection.py", line 100, in inner_send
+    result = next(iter(done)).result()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+playwright._impl._errors.Error: 
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Please install them with the following command:      ║
+║                                                      ║
+║     sudo playwright install-deps                     ║
+║                                                      ║
+║ Alternatively, use apt:                              ║
+║     sudo apt-get install libpango-1.0-0\             ║
+║         libcairo2                                    ║
+║                                                      ║
+║ <3 Playwright Team                                   ║
+╚══════════════════════════════════════════════════════╝
+[2026-01-12T08:07:12.612+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=arsenal_auto_match_scraper, task_id=scrape_new_matches, execution_date=20260112T060000, start_date=20260112T080710, end_date=20260112T080712
+[2026-01-12T08:07:12.837+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 11 for task scrape_new_matches (
+╔══════════════════════════════════════════════════════╗
+║ Host system is missing dependencies to run browsers. ║
+║ Please install them with the following command:      ║
+║                                                      ║
+║     sudo playwright install-deps                     ║
+║                                                      ║
+║ Alternatively, use apt:                              ║
+║     sudo apt-get install libpango-1.0-0\             ║
+║         libcairo2                                    ║
+║                                                      ║
+║ <3 Playwright Team                                   ║
+╚══════════════════════════════════════════════════════╝; 363)
+[2026-01-12T08:07:12.871+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-12T08:07:12.931+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

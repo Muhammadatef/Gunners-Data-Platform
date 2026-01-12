@@ -164,7 +164,6 @@ docker exec arsenalfc_airflow_scheduler airflow dags unpause arsenal_smart_match
 
 ### Project Structure
 
-
 \`\`\`
 arsenal-analytics-platform/
 ├── dags/                  # Airflow DAG definitions
@@ -231,6 +230,16 @@ This project is licensed under the MIT License.
 
 ---
 
+## 🎯 Roadmap
+
+- [ ] Add FBref data source for player positions
+- [ ] Implement xT (Expected Threat) calculations
+- [ ] Add passing network visualizations
+- [ ] ML models for match prediction
+- [ ] Support for multiple teams
+- [ ] CI/CD pipeline with GitHub Actions
+
+---
 
 <p align="center">
   Made with ❤️ for Arsenal FC fans and data enthusiasts
