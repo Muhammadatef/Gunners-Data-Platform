@@ -156,38 +156,45 @@ export default function SeasonOverview({ season }: SeasonOverviewProps) {
 
       {/* Key Metrics */}
       <SimpleGrid columns={{ base: 2, md: 5 }} spacing={4} mb={8}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm" color="gray.800">
-          <StatLabel color="gray.600">Matches</StatLabel>
-          <StatNumber color="gray.900">{summary.matchesPlayed}</StatNumber>
+        <Stat>
+          <StatLabel>Matches</StatLabel>
+          <StatNumber>{summary.matchesPlayed}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm" color="gray.800">
-          <StatLabel color="gray.600">Wins</StatLabel>
-          <StatNumber color="gray.900">{summary.wins}</StatNumber>
+        <Stat>
+          <StatLabel>Wins</StatLabel>
+          <StatNumber>{summary.wins}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm" color="gray.800">
-          <StatLabel color="gray.600">Win Rate</StatLabel>
-          <StatNumber color="gray.900">{winRate}%</StatNumber>
+        <Stat>
+          <StatLabel>Win Rate</StatLabel>
+          <StatNumber>{winRate}%</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm" color="gray.800">
-          <StatLabel color="gray.600">Goals For</StatLabel>
-          <StatNumber color="gray.900">{summary.goalsFor}</StatNumber>
+        <Stat>
+          <StatLabel>Goals For</StatLabel>
+          <StatNumber>{summary.goalsFor}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm" color="gray.800">
-          <StatLabel color="gray.600">xG For</StatLabel>
-          <StatNumber color="gray.900">{summary.totalXgFor.toFixed(1)}</StatNumber>
+        <Stat>
+          <StatLabel>xG For</StatLabel>
+          <StatNumber>{summary.totalXgFor.toFixed(1)}</StatNumber>
         </Stat>
       </SimpleGrid>
 
       {/* Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mb={8}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4} color="gray.800">Form (Last 10)</Heading>
+        <Box p={6} borderRadius="xl">
+          <Heading size="md" mb={4}>Form (Last 10)</Heading>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={formData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis domain={[0, 3]} />
-              <Tooltip />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+              <XAxis dataKey="date" stroke="rgba(255,255,255,0.7)" />
+              <YAxis domain={[0, 3]} stroke="rgba(255,255,255,0.7)" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: 'rgba(0, 31, 63, 0.95)',
+                  border: '1px solid rgba(239, 1, 7, 0.3)',
+                  borderRadius: '8px',
+                  color: 'white'
+                }}
+              />
               <Bar dataKey="points" fill="#8884d8">
                 {formData.map((entry: any, index: number) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
@@ -197,43 +204,50 @@ export default function SeasonOverview({ season }: SeasonOverviewProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
-          <Heading size="md" mb={4} color="gray.800">xG Performance</Heading>
+        <Box p={6} borderRadius="xl">
+          <Heading size="md" mb={4}>xG Performance</Heading>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={xgTrendData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Line type="monotone" dataKey="arsenalXg" stroke="#EF0107" strokeWidth={2} name="Arsenal xG" />
-              <Line type="monotone" dataKey="opponentXg" stroke="#9CA3AF" strokeWidth={2} name="Opponent xG" />
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
+              <XAxis dataKey="date" stroke="rgba(255,255,255,0.7)" />
+              <YAxis stroke="rgba(255,255,255,0.7)" />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: 'rgba(0, 31, 63, 0.95)',
+                  border: '1px solid rgba(239, 1, 7, 0.3)',
+                  borderRadius: '8px',
+                  color: 'white'
+                }}
+              />
+              <Legend wrapperStyle={{ color: 'white' }} />
+              <Line type="monotone" dataKey="arsenalXg" stroke="#EF0107" strokeWidth={3} name="Arsenal xG" dot={{ fill: '#EF0107', r: 4 }} />
+              <Line type="monotone" dataKey="opponentXg" stroke="#9CA3AF" strokeWidth={2} name="Opponent xG" dot={{ fill: '#9CA3AF', r: 3 }} />
             </LineChart>
           </ResponsiveContainer>
         </Box>
       </SimpleGrid>
 
       {/* Recent Matches Table */}
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
-        <Heading size="md" mb={4} color="gray.800">Recent Matches</Heading>
+      <Box p={6} borderRadius="xl">
+        <Heading size="md" mb={4}>Recent Matches</Heading>
         <TableContainer>
-          <Table variant="simple" colorScheme="gray">
-            <Thead bg="gray.50">
+          <Table variant="simple">
+            <Thead>
               <Tr>
-                <Th color="gray.700">Date</Th>
-                <Th color="gray.700">Opponent</Th>
-                <Th color="gray.700">Venue</Th>
-                <Th color="gray.700">Result</Th>
-                <Th color="gray.700">Score</Th>
-                <Th color="gray.700">xG</Th>
+                <Th>Date</Th>
+                <Th>Opponent</Th>
+                <Th>Venue</Th>
+                <Th>Result</Th>
+                <Th>Score</Th>
+                <Th>xG</Th>
               </Tr>
             </Thead>
             <Tbody>
               {matches.slice(0, 10).map((match: any, idx: number) => (
-                <Tr key={idx} _hover={{ bg: 'gray.50' }}>
-                  <Td color="gray.900">{format(new Date(match.matchDate), 'MMM d, yyyy')}</Td>
-                  <Td color="gray.900" fontWeight="medium">{match.opponent}</Td>
-                  <Td color="gray.700">{match.venue}</Td>
+                <Tr key={idx}>
+                  <Td>{format(new Date(match.matchDate), 'MMM d, yyyy')}</Td>
+                  <Td fontWeight="medium">{match.opponent}</Td>
+                  <Td>{match.venue}</Td>
                   <Td>
                     <Box
                       as="span"
@@ -248,8 +262,8 @@ export default function SeasonOverview({ season }: SeasonOverviewProps) {
                       {match.result}
                     </Box>
                   </Td>
-                  <Td color="gray.900" fontWeight="semibold">{match.arsenalGoals} - {match.opponentGoals}</Td>
-                  <Td color="gray.700" fontSize="sm">{match.arsenalXg.toFixed(2)} - {match.opponentXg.toFixed(2)}</Td>
+                  <Td fontWeight="semibold">{match.arsenalGoals} - {match.opponentGoals}</Td>
+                  <Td fontSize="sm">{match.arsenalXg.toFixed(2)} - {match.opponentXg.toFixed(2)}</Td>
                 </Tr>
               ))}
             </Tbody>

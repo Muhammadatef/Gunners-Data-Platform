@@ -80,7 +80,7 @@ export default function ExpectedThreat({ season }: ExpectedThreatProps) {
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mb={6}>
         {top3.map((player: any, idx: number) => (
-          <Stat key={idx} bg="white" p={4} borderRadius="md" boxShadow="sm">
+          <Stat key={idx}  p={4} borderRadius="xl" >
             <StatLabel>
               {idx === 0 && '🥇 '}
               {idx === 1 && '🥈 '}
@@ -88,12 +88,12 @@ export default function ExpectedThreat({ season }: ExpectedThreatProps) {
               {player.playerName}
             </StatLabel>
             <StatNumber>{player.totalXt.toFixed(1)} xT</StatNumber>
-            <Text fontSize="sm" color="gray.600">{player.totalShots} shots</Text>
+            <Text fontSize="sm" >{player.totalShots} shots</Text>
           </Stat>
         ))}
       </SimpleGrid>
 
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm" mb={6}>
+      <Box  p={6} borderRadius="xl"  mb={6}>
         <Heading size="md" mb={4}>xT Leaders</Heading>
         <ResponsiveContainer width="100%" height={400}>
           <BarChart data={top10} layout="vertical">
@@ -106,7 +106,7 @@ export default function ExpectedThreat({ season }: ExpectedThreatProps) {
         </ResponsiveContainer>
       </Box>
 
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+      <Box  p={6} borderRadius="xl" >
         <Heading size="md" mb={4}>Player xT Statistics</Heading>
         <TableContainer>
           <Table variant="simple">

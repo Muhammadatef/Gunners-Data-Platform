@@ -204,7 +204,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
             placeholder="Select Match"
             value={selectedMatch}
             onChange={(e) => setSelectedMatch(e.target.value)}
-            bg="white"
+            
             size="lg"
           >
             {matches.map((match: any) => (
@@ -230,7 +230,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
         <>
           {/* Match Summary */}
           <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Result</StatLabel>
               <StatNumber>
                 <Badge
@@ -243,7 +243,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
               </StatNumber>
               <StatHelpText>{stats.opponent} ({stats.venue})</StatHelpText>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>xG Performance</StatLabel>
               <StatNumber>
                 {(stats.arsenalGoals - stats.arsenalXg).toFixed(2)}
@@ -252,14 +252,14 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
                 {stats.arsenalGoals} goals from {stats.arsenalXg.toFixed(2)} xG
               </StatHelpText>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Shot Accuracy</StatLabel>
               <StatNumber>{stats.arsenalShotAccuracyPct.toFixed(1)}%</StatNumber>
               <StatHelpText>
                 {stats.arsenalShotsOnTarget} on target / {stats.arsenalShots} total
               </StatHelpText>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Big Chances</StatLabel>
               <StatNumber>
                 {stats.arsenalBigChancesScored}/{stats.arsenalBigChances}
@@ -281,7 +281,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
                   <Alert
                     key={idx}
                     status={insight.type}
-                    borderRadius="md"
+                    borderRadius="xl"
                   >
                     <AlertIcon />
                     <Box>
@@ -296,7 +296,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
 
           {/* Half Comparison */}
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-            <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+            <Box  p={6} borderRadius="xl" >
               <Heading size="md" mb={4}>First Half Performance</Heading>
               <SimpleGrid columns={2} spacing={4}>
                 <Stat>
@@ -309,7 +309,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
                 </Stat>
               </SimpleGrid>
             </Box>
-            <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+            <Box  p={6} borderRadius="xl" >
               <Heading size="md" mb={4}>Second Half Performance</Heading>
               <SimpleGrid columns={2} spacing={4}>
                 <Stat>
@@ -326,7 +326,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
 
           {/* Key Moments */}
           {keyMoments.length > 0 && (
-            <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+            <Box  p={6} borderRadius="xl" >
               <Heading size="md" mb={4}>Key Moments</Heading>
               <VStack spacing={2} align="stretch">
                 {keyMoments.map((moment: any, idx: number) => (
@@ -335,7 +335,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
                     p={3}
                     border="1px"
                     borderColor="gray.200"
-                    borderRadius="md"
+                    borderRadius="xl"
                     bg={moment.result === 'Goal' ? '#F0FDF4' : '#FEF3C7'}
                   >
                     <HStack justify="space-between">
@@ -361,7 +361,7 @@ export default function MatchInsights({ season }: MatchInsightsProps) {
           )}
 
           {/* Shot Quality Comparison */}
-          <Box bg="white" p={6} borderRadius="md" boxShadow="sm" mt={6}>
+          <Box  p={6} borderRadius="xl"  mt={6}>
             <Heading size="md" mb={4}>Shot Quality Analysis</Heading>
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
               <Box>

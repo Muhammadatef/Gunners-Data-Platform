@@ -124,21 +124,21 @@ export default function OpponentAnalysis({ season }: OpponentAnalysisProps) {
 
       {/* Key Metrics */}
       <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Total Opponents</StatLabel>
           <StatNumber>{opponents.length}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Best Record</StatLabel>
           <StatNumber>{bestRecord?.winRatePct.toFixed(1)}%</StatNumber>
           <StatHelpText>{bestRecord?.opponent}</StatHelpText>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Worst Record</StatLabel>
           <StatNumber>{worstRecord?.winRatePct.toFixed(1)}%</StatNumber>
           <StatHelpText>{worstRecord?.opponent}</StatHelpText>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Avg Win Rate</StatLabel>
           <StatNumber>
             {(opponents.reduce((sum: number, o: any) => sum + o.winRatePct, 0) / opponents.length).toFixed(1)}%
@@ -148,7 +148,7 @@ export default function OpponentAnalysis({ season }: OpponentAnalysisProps) {
 
       {/* Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Win Rate by Opponent</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={winRateData}>
@@ -161,7 +161,7 @@ export default function OpponentAnalysis({ season }: OpponentAnalysisProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>xG Comparison</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={xgComparison}>
@@ -178,7 +178,7 @@ export default function OpponentAnalysis({ season }: OpponentAnalysisProps) {
       </SimpleGrid>
 
       {/* Detailed Table */}
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+      <Box  p={6} borderRadius="xl" >
         <Heading size="md" mb={4}>Head-to-Head Records</Heading>
         <TableContainer>
           <Table variant="simple" size="sm">

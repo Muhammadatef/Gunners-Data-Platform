@@ -13,6 +13,7 @@ import OpponentAnalysis from './components/dashboards/OpponentAnalysis'
 import PerformanceTrends from './components/dashboards/PerformanceTrends'
 import PlayerComparison from './components/dashboards/PlayerComparison'
 import MatchInsights from './components/dashboards/MatchInsights'
+import AIChatbot from './components/AIChatbot'
 
 function AppContent() {
   const { season } = useSeason()
@@ -94,6 +95,7 @@ function AppContent() {
         </Tabs>
       </Container>
       <Footer />
+      <AIChatbot />
     </Box>
   )
 }

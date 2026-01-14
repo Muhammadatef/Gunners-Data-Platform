@@ -139,6 +139,7 @@ services:
     container_name: arsenalfc_frontend
     environment:
       VITE_GRAPHQL_URL: http://backend:4000/graphql
+      VITE_RAG_CHATBOT_URL: http://rag-chatbot:5000
     ports:
       - "3000:3000"
     volumes:
@@ -146,6 +147,31 @@ services:
       - /app/node_modules
     depends_on:
       - backend
+      - rag-chatbot
+    restart: always
+    networks:
+      - arsenalfc_network
+
+  # RAG Chatbot - Python AI Assistant
+  rag-chatbot:
+    build:
+      context: ./rag-chatbot
+      dockerfile: Dockerfile
+    container_name: arsenalfc_rag_chatbot
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: arsenalfc_analytics
+      POSTGRES_USER: analytics_user
+      POSTGRES_PASSWORD: analytics_pass
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    ports:
+      - "5000:5000"
+    volumes:
+      - rag-embeddings:/app/data
+      - ./rag-chatbot:/app
+    depends_on:
+      - postgres
     restart: always
     networks:
       - arsenalfc_network
@@ -174,6 +200,7 @@ services:
 
 volumes:
   postgres-db-volume:
+  rag-embeddings:
 
 networks:
   arsenalfc_network:

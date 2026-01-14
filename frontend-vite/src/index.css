@@ -3,6 +3,17 @@
   box-sizing: border-box;
 }
 
+/* Animated gradient background */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes dotMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -11,10 +22,45 @@ body {
     'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated gradient background with particles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #001F3F 0%, #063672 25%, #0A1628 50%, #063672 75%, #001F3F 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -2;
+}
+
+/* Particle dots background effect */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(239, 1, 7, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(240, 171, 0, 0.06) 1px, transparent 1px),
+    radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px, 100px 100px;
+  animation: dotMove 20s linear infinite;
+  z-index: -1;
 }
 
 #root {
   min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 /* Override white backgrounds with glassmorphism effect */
@@ -62,32 +108,86 @@ table tr:hover td {
   backdrop-filter: blur(10px) !important;
 }
 
-/* Glassmorphism cards */
+/* Glassmorphism cards with enhanced effects */
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); }
+  50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(239, 1, 7, 0.1); }
+}
+
 .chakra-stat__group,
 .chakra-box {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(180%);
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.chakra-stat__group::before,
+.chakra-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 1, 7, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.chakra-stat__group:hover::before,
+.chakra-box:hover::before {
+  left: 100%;
 }
 
 .chakra-stat__group:hover,
 .chakra-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(239, 1, 7, 0.2);
-  border-color: rgba(239, 1, 7, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 60px rgba(239, 1, 7, 0.3),
+    0 0 40px rgba(239, 1, 7, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(239, 1, 7, 0.4);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* Stat component colors */
+/* Stat component colors with gradient text */
+@keyframes textGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes numberPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .chakra-stat__label {
   color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .chakra-stat__number {
-  color: white !important;
-  font-weight: bold;
+  background: linear-gradient(135deg, #FFFFFF 0%, #EF0107 50%, #F0AB00 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGradient 3s ease infinite;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.chakra-stat__group:hover .chakra-stat__number {
+  animation: textGradient 3s ease infinite, numberPulse 0.5s ease;
 }
 
 /* Select dropdowns */

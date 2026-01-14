@@ -107,7 +107,7 @@ export default function PerformanceTrends({ season }: PerformanceTrendsProps) {
           value={windowSize}
           onChange={(e) => setWindowSize(parseInt(e.target.value))}
           width="150px"
-          bg="white"
+          
         >
           <option value={3}>3 matches</option>
           <option value={5}>5 matches</option>
@@ -117,24 +117,24 @@ export default function PerformanceTrends({ season }: PerformanceTrendsProps) {
 
       {/* Current Form Metrics */}
       <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Form (Last 5)</StatLabel>
           <StatNumber>{formPoints}/15</StatNumber>
-          <Text fontSize="sm" color="gray.600">
+          <Text fontSize="sm" >
             {recentForm.filter((m: any) => m.result === 'W').length}W
             {' '}{recentForm.filter((m: any) => m.result === 'D').length}D
             {' '}{recentForm.filter((m: any) => m.result === 'L').length}L
           </Text>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Avg Goals (Last 5)</StatLabel>
           <StatNumber>{avgGoalsRecent.toFixed(2)}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Avg xG (Last 5)</StatLabel>
           <StatNumber>{avgXgRecent.toFixed(2)}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Total Matches</StatLabel>
           <StatNumber>{trends.length}</StatNumber>
         </Stat>
@@ -142,7 +142,7 @@ export default function PerformanceTrends({ season }: PerformanceTrendsProps) {
 
       {/* Trend Charts */}
       <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Goals vs xG Trend</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <AreaChart data={trendData}>
@@ -159,7 +159,7 @@ export default function PerformanceTrends({ season }: PerformanceTrendsProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Shots & Big Chances Trend</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <LineChart data={trendData}>
@@ -178,7 +178,7 @@ export default function PerformanceTrends({ season }: PerformanceTrendsProps) {
       </SimpleGrid>
 
       {/* Rolling Averages */}
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+      <Box  p={6} borderRadius="xl" >
         <Heading size="md" mb={4}>Rolling Averages ({windowSize} matches)</Heading>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={trendData}>

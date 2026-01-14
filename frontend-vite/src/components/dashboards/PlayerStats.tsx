@@ -101,25 +101,25 @@ export default function PlayerStats({ season }: PlayerStatsProps) {
       </Heading>
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mb={6}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Top Scorer</StatLabel>
           <StatNumber>{topScorer.playerName}</StatNumber>
-          <Text fontSize="sm" color="gray.600">{topScorer.goals} goals</Text>
+          <Text fontSize="sm" >{topScorer.goals} goals</Text>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Highest xG</StatLabel>
           <StatNumber>{topScorer.totalXg.toFixed(1)}</StatNumber>
-          <Text fontSize="sm" color="gray.600">{topScorer.playerName}</Text>
+          <Text fontSize="sm" >{topScorer.playerName}</Text>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Most Shots</StatLabel>
           <StatNumber>{topScorer.totalShots}</StatNumber>
-          <Text fontSize="sm" color="gray.600">{topScorer.playerName}</Text>
+          <Text fontSize="sm" >{topScorer.playerName}</Text>
         </Stat>
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Top Scorers</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={top10} layout="vertical">
@@ -132,7 +132,7 @@ export default function PlayerStats({ season }: PlayerStatsProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>xG vs Goals</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={top10}>
@@ -148,13 +148,13 @@ export default function PlayerStats({ season }: PlayerStatsProps) {
         </Box>
       </SimpleGrid>
 
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm" mb={6}>
+      <Box  p={6} borderRadius="xl"  mb={6}>
         <Heading size="md" mb={4}>Player Shot Heatmap</Heading>
         <Select
           placeholder="Select Player"
           value={selectedPlayer}
           onChange={(e) => setSelectedPlayer(e.target.value)}
-          bg="white"
+          
           mb={4}
         >
           {players.map((player: any) => (
@@ -177,7 +177,7 @@ export default function PlayerStats({ season }: PlayerStatsProps) {
         ) : null}
       </Box>
 
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+      <Box  p={6} borderRadius="xl" >
         <Heading size="md" mb={4}>Player Performance Table</Heading>
         <TableContainer>
           <Table variant="simple">

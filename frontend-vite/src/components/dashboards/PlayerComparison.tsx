@@ -144,7 +144,7 @@ export default function PlayerComparison({ season }: PlayerComparisonProps) {
           <Select
             value={player1}
             onChange={(e) => setPlayer1(e.target.value)}
-            bg="white"
+            
           >
             {players.map((p: any) => (
               <option key={p.playerName} value={p.playerName}>
@@ -158,7 +158,7 @@ export default function PlayerComparison({ season }: PlayerComparisonProps) {
           <Select
             value={player2}
             onChange={(e) => setPlayer2(e.target.value)}
-            bg="white"
+            
           >
             {players.map((p: any) => (
               <option key={p.playerName} value={p.playerName}>
@@ -173,56 +173,56 @@ export default function PlayerComparison({ season }: PlayerComparisonProps) {
         <>
           {/* Comparison Stats */}
           <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Goals</StatLabel>
               <StatNumber>
                 <HStack>
                   <Text color={p1.goals > p2.goals ? 'arsenal.500' : 'gray.600'}>
                     {p1.goals}
                   </Text>
-                  <Text color="gray.400">vs</Text>
+                  <Text >vs</Text>
                   <Text color={p2.goals > p1.goals ? 'arsenal.500' : 'gray.600'}>
                     {p2.goals}
                   </Text>
                 </HStack>
               </StatNumber>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Total xG</StatLabel>
               <StatNumber>
                 <HStack>
                   <Text color={p1.totalXg > p2.totalXg ? 'arsenal.500' : 'gray.600'}>
                     {p1.totalXg.toFixed(1)}
                   </Text>
-                  <Text color="gray.400">vs</Text>
+                  <Text >vs</Text>
                   <Text color={p2.totalXg > p1.totalXg ? 'arsenal.500' : 'gray.600'}>
                     {p2.totalXg.toFixed(1)}
                   </Text>
                 </HStack>
               </StatNumber>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Assists</StatLabel>
               <StatNumber>
                 <HStack>
                   <Text color={p1.assists > p2.assists ? 'arsenal.500' : 'gray.600'}>
                     {p1.assists}
                   </Text>
-                  <Text color="gray.400">vs</Text>
+                  <Text >vs</Text>
                   <Text color={p2.assists > p1.assists ? 'arsenal.500' : 'gray.600'}>
                     {p2.assists}
                   </Text>
                 </HStack>
               </StatNumber>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Conversion %</StatLabel>
               <StatNumber>
                 <HStack>
                   <Text color={p1.conversionPct > p2.conversionPct ? 'arsenal.500' : 'gray.600'}>
                     {p1.conversionPct.toFixed(1)}%
                   </Text>
-                  <Text color="gray.400">vs</Text>
+                  <Text >vs</Text>
                   <Text color={p2.conversionPct > p1.conversionPct ? 'arsenal.500' : 'gray.600'}>
                     {p2.conversionPct.toFixed(1)}%
                   </Text>
@@ -232,7 +232,7 @@ export default function PlayerComparison({ season }: PlayerComparisonProps) {
           </SimpleGrid>
 
           {/* Radar Chart */}
-          <Box bg="white" p={6} borderRadius="md" boxShadow="sm" mb={6}>
+          <Box  p={6} borderRadius="xl"  mb={6}>
             <Heading size="md" mb={4}>Performance Radar</Heading>
             <ResponsiveContainer width="100%" height={400}>
               <RadarChart data={radarData}>
@@ -248,7 +248,7 @@ export default function PlayerComparison({ season }: PlayerComparisonProps) {
           </Box>
 
           {/* Side-by-Side Comparison Table */}
-          <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+          <Box  p={6} borderRadius="xl" >
             <Heading size="md" mb={4}>Detailed Comparison</Heading>
             <TableContainer>
               <Table variant="simple">

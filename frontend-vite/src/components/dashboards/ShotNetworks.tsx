@@ -174,29 +174,29 @@ export default function ShotNetworks({ season }: ShotNetworksProps) {
       </Heading>
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mb={6}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Total Assists</StatLabel>
           <StatNumber>{totalAssists}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Goals from Assists</StatLabel>
           <StatNumber>{goalsFromAssists}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Active Assisters</StatLabel>
           <StatNumber>{uniqueAssisters}</StatNumber>
         </Stat>
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Assist Network Graph</Heading>
           <Box width="100%" overflow="auto">
             <svg ref={networkRef} style={{ display: 'block', margin: '0 auto' }} />
           </Box>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Top Assisters</Heading>
           <ResponsiveContainer width="100%" height={500}>
             <BarChart data={topAssisters} layout="vertical">
@@ -210,7 +210,7 @@ export default function ShotNetworks({ season }: ShotNetworksProps) {
         </Box>
       </SimpleGrid>
 
-      <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+      <Box  p={6} borderRadius="xl" >
         <Heading size="md" mb={4}>Assist Partnerships Detail</Heading>
         <TableContainer>
           <Table variant="simple">

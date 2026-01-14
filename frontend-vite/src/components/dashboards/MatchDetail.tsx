@@ -123,7 +123,7 @@ export default function MatchDetail({ season }: MatchDetailProps) {
             placeholder="Select Match"
             value={selectedMatch}
             onChange={(e) => setSelectedMatch(e.target.value)}
-            bg="white"
+            
             mb={4}
           >
             {matches.map((match: any) => (
@@ -142,17 +142,17 @@ export default function MatchDetail({ season }: MatchDetailProps) {
       ) : selectedMatch && arsenalShots.length > 0 ? (
         <>
           <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4} mb={6}>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Total Shots</StatLabel>
               <StatNumber>{arsenalShots.length}</StatNumber>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Goals</StatLabel>
               <StatNumber>
                 {arsenalShots.filter((s: any) => s.result === 'Goal').length}
               </StatNumber>
             </Stat>
-            <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+            <Stat  p={4} borderRadius="xl" >
               <StatLabel>Total xG</StatLabel>
               <StatNumber>
                 {arsenalShots.reduce((sum: number, s: any) => sum + s.xg, 0).toFixed(2)}
@@ -160,13 +160,13 @@ export default function MatchDetail({ season }: MatchDetailProps) {
             </Stat>
           </SimpleGrid>
 
-          <Box bg="white" p={6} borderRadius="md" boxShadow="sm" mb={6}>
+          <Box  p={6} borderRadius="xl"  mb={6}>
             <Heading size="md" mb={4}>Shot Map</Heading>
             <Pitch shots={arsenalShots} />
           </Box>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-            <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+            <Box  p={6} borderRadius="xl" >
               <Heading size="md" mb={4}>xG Timeline</Heading>
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={xgTimeline}>
@@ -179,7 +179,7 @@ export default function MatchDetail({ season }: MatchDetailProps) {
               </ResponsiveContainer>
             </Box>
 
-            <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+            <Box  p={6} borderRadius="xl" >
               <Heading size="md" mb={4}>Shot Outcomes</Heading>
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
@@ -203,7 +203,7 @@ export default function MatchDetail({ season }: MatchDetailProps) {
             </Box>
           </SimpleGrid>
 
-          <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+          <Box  p={6} borderRadius="xl" >
             <Heading size="md" mb={4}>Shot Details</Heading>
             <TableContainer>
               <Table variant="simple" size="sm">

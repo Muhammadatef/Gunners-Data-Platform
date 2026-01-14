@@ -178,26 +178,26 @@ export default function TacticalAnalysis({ season }: TacticalAnalysisProps) {
       </Heading>
 
       <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Total Shots</StatLabel>
           <StatNumber>{totalShots}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Goals</StatLabel>
           <StatNumber>{goals}</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Conversion %</StatLabel>
           <StatNumber>{conversion}%</StatNumber>
         </Stat>
-        <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+        <Stat  p={4} borderRadius="xl" >
           <StatLabel>Avg xG/Shot</StatLabel>
           <StatNumber>{avgXg}</StatNumber>
         </Stat>
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Shot Outcomes</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <PieChart>
@@ -220,7 +220,7 @@ export default function TacticalAnalysis({ season }: TacticalAnalysisProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Shot Timing by Period</Heading>
           <ResponsiveContainer width="100%" height={400}>
             <BarChart data={timingData}>
@@ -237,7 +237,7 @@ export default function TacticalAnalysis({ season }: TacticalAnalysisProps) {
       </SimpleGrid>
 
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6} mb={6}>
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>xG Distribution</Heading>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={xgBins}>
@@ -250,7 +250,7 @@ export default function TacticalAnalysis({ season }: TacticalAnalysisProps) {
           </ResponsiveContainer>
         </Box>
 
-        <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+        <Box  p={6} borderRadius="xl" >
           <Heading size="md" mb={4}>Situation Effectiveness</Heading>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={situationData}>

@@ -269,7 +269,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
             placeholder="Select Match"
             value={selectedMatch}
             onChange={(e) => setSelectedMatch(e.target.value)}
-            bg="white"
+            
             mb={4}
             size="lg"
           >
@@ -295,7 +295,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
                 placeholder="Select Player"
                 value={selectedPlayer}
                 onChange={(e) => setSelectedPlayer(e.target.value)}
-                bg="white"
+                
                 size="lg"
               >
                 {players.map((player: string) => (
@@ -307,7 +307,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
             </Box>
           ) : (
             <Center py={4}>
-              <Text color="gray.600">No players found for this match</Text>
+              <Text >No players found for this match</Text>
             </Center>
           )}
 
@@ -315,19 +315,19 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
             <>
               {/* Player Stats */}
               <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4} mb={6}>
-                <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+                <Stat  p={4} borderRadius="xl" >
                   <StatLabel>Shots</StatLabel>
                   <StatNumber>{playerStats.totalShots}</StatNumber>
                 </Stat>
-                <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+                <Stat  p={4} borderRadius="xl" >
                   <StatLabel>Goals</StatLabel>
                   <StatNumber>{playerStats.goals}</StatNumber>
                 </Stat>
-                <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+                <Stat  p={4} borderRadius="xl" >
                   <StatLabel>Total xG</StatLabel>
                   <StatNumber>{playerStats.totalXg.toFixed(2)}</StatNumber>
                 </Stat>
-                <Stat bg="white" p={4} borderRadius="md" boxShadow="sm">
+                <Stat  p={4} borderRadius="xl" >
                   <StatLabel>Assists</StatLabel>
                   <StatNumber>{playerStats.assists}</StatNumber>
                 </Stat>
@@ -336,7 +336,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
               {/* Visualizations */}
               <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mb={6}>
                 {/* Shot Heat Map */}
-                <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+                <Box  p={6} borderRadius="xl" >
                   <Heading size="md" mb={4}>
                     {selectedPlayer} - Shot Heat Map
                   </Heading>
@@ -348,13 +348,13 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
                     <Pitch shots={shots} />
                   ) : (
                     <Center py={10}>
-                      <Text color="gray.600">No shots data for this player in this match</Text>
+                      <Text >No shots data for this player in this match</Text>
                     </Center>
                   )}
                 </Box>
 
                 {/* Pass Network */}
-                <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+                <Box  p={6} borderRadius="xl" >
                   <Heading size="md" mb={4}>
                     {selectedPlayer} - Pass Network
                   </Heading>
@@ -367,7 +367,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
                       <svg ref={networkRef} style={{ display: 'block', margin: '0 auto' }} />
                     </Box>
                   )}
-                  <Box mt={4} fontSize="sm" color="gray.600">
+                  <Box mt={4} fontSize="sm" >
                     <Text>
                       <Box as="span" color="#EF0107" fontWeight="bold">
                         Red
@@ -384,7 +384,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
 
               {/* Shot Details */}
               {shots.length > 0 && (
-                <Box bg="white" p={6} borderRadius="md" boxShadow="sm">
+                <Box  p={6} borderRadius="xl" >
                   <Heading size="md" mb={4}>Shot Details</Heading>
                   <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4}>
                     {shots.map((shot: any, idx: number) => (
@@ -393,13 +393,13 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
                         p={3}
                         border="1px"
                         borderColor="gray.200"
-                        borderRadius="md"
+                        borderRadius="xl"
                         bg={shot.result === 'Goal' ? '#F0FDF4' : 'white'}
                       >
                         <Text fontSize="sm" fontWeight="bold">
                           {shot.minute}'
                         </Text>
-                        <Text fontSize="xs" color="gray.600">
+                        <Text fontSize="xs" >
                           {shot.result} - xG: {shot.xg.toFixed(3)}
                         </Text>
                         {shot.assistedBy && (
@@ -419,7 +419,7 @@ export default function PlayerMatchAnalysis({ season }: PlayerMatchAnalysisProps
 
       {!selectedMatch && (
         <Center py={10}>
-          <Text color="gray.600">Please select a match to view player analysis</Text>
+          <Text >Please select a match to view player analysis</Text>
         </Center>
       )}
     </Box>
