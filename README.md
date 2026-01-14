@@ -42,7 +42,7 @@ make status
 |---------|-----|
 | **Dashboard** | http://localhost:3000 |
 | **GraphQL API** | http://localhost:4000/graphql |
-| **Airflow UI** | http://localhost:8080 (admin/admin) |
+| **Airflow UI** | http://localhost:8080  |
 | **RAG Chatbot API** | http://localhost:5000 |
 
 ---
